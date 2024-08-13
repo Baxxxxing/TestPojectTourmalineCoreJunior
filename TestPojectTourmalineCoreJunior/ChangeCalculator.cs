@@ -26,12 +26,19 @@ namespace TestPojectTourmalineCoreJunior
                     remainingCoins[i] -= maxCoins;
                 }
             }
-            string resultMessage = "Для сдачи используйте следующие монеты:";
-            foreach (var (coinValue, quantity) in result)
+            if (change == 0)
             {
-                resultMessage += $" {coinValue}р x {quantity}";
+                string resultMessage = "Для сдачи используйте следующие монеты:";
+                foreach (var (coinValue, quantity) in result)
+                {
+                    resultMessage += $" {coinValue}р x {quantity}";
+                }
+                return resultMessage;
             }
-            return resultMessage;
+            else
+            {
+                return "Невозможно вернуть сдачу, используйте кредитную карту.";
+            }
         }
     }
 }
